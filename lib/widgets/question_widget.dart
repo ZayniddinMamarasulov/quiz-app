@@ -17,16 +17,16 @@ class QuestionWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 64),
+          const SizedBox(height: 32),
           Text(
             "Question - ${index}",
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 24,
               color: Color(0xff6066D0),
             ),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
             questionTitle,
             style: TextStyle(fontSize: 18),

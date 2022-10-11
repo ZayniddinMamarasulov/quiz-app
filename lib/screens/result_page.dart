@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/screens/question_page.dart';
 
 class ResultPage extends StatelessWidget {
   Map<int, bool> userResult;
@@ -13,10 +14,10 @@ class ResultPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Center(
+          const Center(
             child: Text("Your result is"),
           ),
-          SizedBox(height: 64),
+          const SizedBox(height: 64),
           ListView.separated(
             shrinkWrap: true,
             itemCount: userResult.length,
@@ -46,6 +47,18 @@ class ResultPage extends StatelessWidget {
             separatorBuilder: (context, index) {
               return SizedBox(height: 8);
             },
+          ),
+          const SizedBox(height: 120),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => QuestionPage(),
+                ),
+              );
+            },
+            child: Text("Start Again"),
           )
         ],
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/widgets/option_widget.dart';
 
-import '../question_model.dart';
+import '../models/question_model.dart';
 
 class AnswersWidget extends StatefulWidget {
   QuestionModel questionModel;
@@ -19,54 +19,56 @@ class AnswersWidget extends StatefulWidget {
 }
 
 class _AnswersWidgetState extends State<AnswersWidget> {
-  int selectedIndex = -1;
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         OptionWidget(
-          option: widget.questionModel.option1,
-          isSelected: selectedIndex == 1,
+          option: widget.questionModel.option1.title,
+          isSelected: widget.questionModel.option1.isSelected,
           onTap: () {
             setState(() {
-              selectedIndex = 1;
+              widget.questionModel.option1.isSelected =
+                  !widget.questionModel.option1.isSelected;
             });
-            widget.onAnswerSelected(
-                widget.questionModel.trueAnswer == selectedIndex);
+            widget.onAnswerSelected(widget.questionModel.trueAnswer ==
+                widget.questionModel.option1.isSelected);
           },
         ),
         OptionWidget(
-          option: widget.questionModel.option2,
-          isSelected: selectedIndex == 2,
+          option: widget.questionModel.option2.title,
+          isSelected: widget.questionModel.option2.isSelected,
           onTap: () {
             setState(() {
-              selectedIndex = 2;
+              widget.questionModel.option2.isSelected =
+                  !widget.questionModel.option2.isSelected;
             });
-            widget.onAnswerSelected(
-                widget.questionModel.trueAnswer == selectedIndex);
+            widget.onAnswerSelected(widget.questionModel.trueAnswer ==
+                widget.questionModel.option2.isSelected);
           },
         ),
         OptionWidget(
-          isSelected: selectedIndex == 3,
-          option: widget.questionModel.option3,
+          option: widget.questionModel.option3.title,
+          isSelected: widget.questionModel.option3.isSelected,
           onTap: () {
             setState(() {
-              selectedIndex = 3;
+              widget.questionModel.option3.isSelected =
+                  !widget.questionModel.option3.isSelected;
             });
-            widget.onAnswerSelected(
-                widget.questionModel.trueAnswer == selectedIndex);
+            widget.onAnswerSelected(widget.questionModel.trueAnswer ==
+                widget.questionModel.option3.isSelected);
           },
         ),
         OptionWidget(
-          isSelected: selectedIndex == 4,
-          option: widget.questionModel.option4,
+          option: widget.questionModel.option4.title,
+          isSelected: widget.questionModel.option4.isSelected,
           onTap: () {
             setState(() {
-              selectedIndex = 4;
+              widget.questionModel.option4.isSelected =
+                  !widget.questionModel.option4.isSelected;
             });
-            widget.onAnswerSelected(
-                widget.questionModel.trueAnswer == selectedIndex);
+            widget.onAnswerSelected(widget.questionModel.trueAnswer ==
+                widget.questionModel.option4.isSelected);
           },
         ),
       ],
